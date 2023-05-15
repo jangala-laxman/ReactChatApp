@@ -39,6 +39,7 @@ const Home = (props) => {
     })
   }
 
+  contacts.push(props.connectedUsers)
 
   return (
     <div className="chat-container">
@@ -66,24 +67,17 @@ const Home = (props) => {
                 </div>
                </div>)
           }
-          <div className="dropdown">
-            {contacts.filter(item=>{
-              const searchItem = value.toLocaleLowerCase()
-              const uname= item.username.toLocaleLowerCase()
-              return searchItem && uname.startsWith(searchItem) && uname !== searchItem
-            })
-            .map((data, index)=>{
-              return(
-                <div key={index} onClick={()=>onSearch(data.username)} className="dropdown-row">
-                  {data.username}
-                </div>
-              )
-            })}
-          </div>
+
         </div>
         <div className="user-list"></div>
         <Sidebar
-          connectedUsers={props.connectedUsers}
+          connectedUsers={ value ? props.connectedUsers.filter(item=>{
+            const searchItem = value.toLocaleLowerCase()
+            const uname= item.username.toLocaleLowerCase()
+            return searchItem && uname.startsWith(searchItem) && uname !== searchItem
+          }) : 
+          props.connectedUsers
+        }
           selectUser={getSelectedUser}
         />
       </div>

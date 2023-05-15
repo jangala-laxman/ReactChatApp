@@ -50,7 +50,7 @@ const Home = (props) => {
           <div  className="addContact" onClick={()=>{setCreateUser(!createuser)}}>+</div>
           { createuser && (
             <div className="add_dropdown">
-              <input type="text" placeholder="add user" value={addvalue} onChange={onAddContact} /><button onClick={addnewUser}><a href="http://localhost:3000" target="blank">add</a></button>
+              <input type="text" placeholder="add user" value={addvalue} onChange={onAddContact} /><button onClick={addnewUser}><a href="https://reactchatappclientfront.onrender.com" target="blank">add</a></button>
               <div className="dropdown2">
                 {contacts.filter(item=>{
                   const searchItem = value.toLocaleLowerCase()

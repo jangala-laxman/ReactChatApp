@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@syncfusion/ej2-data": "^21.2.4"
+  }
+}

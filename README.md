@@ -1,5 +1,14 @@
 # Private Chat Socket.io React 
 
+This is my hosted URL : https://reactchatappclientfront.onrender.com
+
+This is my video recording of chat application demo
+
+https://github.com/jangala-laxman/ReactChatApp/assets/74813943/cfab30dc-e07a-4ed8-94b8-377280369822
+
+
+
+
 ### About the project
 
 ![screenshot]

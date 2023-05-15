@@ -1,5 +1,5 @@
 import { io } from "socket.io-client";
-const URL = "http://localhost:4200";
+const URL = "https://reactchatappclientback.onrender.com";
 
 const socket = io(URL, { autoConnect: false });
 

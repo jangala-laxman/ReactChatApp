@@ -39,7 +39,6 @@ const Home = (props) => {
     })
   }
 
-  contacts.push(props.connectedUsers)
 
   return (
     <div className="chat-container">
@@ -50,7 +49,7 @@ const Home = (props) => {
           <div  className="addContact" onClick={()=>{setCreateUser(!createuser)}}>+</div>
           { createuser && (
             <div className="add_dropdown">
-              <input type="text" placeholder="add user" value={addvalue} onChange={onAddContact} /><button onClick={addnewUser}><a href="https://reactchatappclientfront.onrender.com" target="blank">add</a></button>
+              <input type="text" placeholder="add user" value={addvalue} onChange={onAddContact} /><button onClick={addnewUser}><a href="http://localhost:3000" target="blank">add</a></button>
               <div className="dropdown2">
                 {contacts.filter(item=>{
                   const searchItem = value.toLocaleLowerCase()
@@ -67,17 +66,24 @@ const Home = (props) => {
                 </div>
                </div>)
           }
-
+          <div className="dropdown">
+            {contacts.filter(item=>{
+              const searchItem = value.toLocaleLowerCase()
+              const uname= item.username.toLocaleLowerCase()
+              return searchItem && uname.startsWith(searchItem) && uname !== searchItem
+            })
+            .map((data, index)=>{
+              return(
+                <div key={index} onClick={()=>onSearch(data.username)} className="dropdown-row">
+                  {data.username}
+                </div>
+              )
+            })}
+          </div>
         </div>
         <div className="user-list"></div>
         <Sidebar
-          connectedUsers={ value ? props.connectedUsers.filter(item=>{
-            const searchItem = value.toLocaleLowerCase()
-            const uname= item.username.toLocaleLowerCase()
-            return searchItem && uname.startsWith(searchItem) && uname !== searchItem
-          }) : 
-          props.connectedUsers
-        }
+          connectedUsers={props.connectedUsers}
           selectUser={getSelectedUser}
         />
       </div>

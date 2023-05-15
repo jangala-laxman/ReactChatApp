@@ -37,7 +37,6 @@ const Chatwindow = (props) => {
   socket.on("private message", ({ content, from }) => {
     console.log(props.connectedUsers);
     let newMessages = {};
-    
     for (let i = 0; i < props.connectedUsers.length; i++) {
       const user = props.connectedUsers[i];
       if (user.userID === from) {
@@ -77,7 +76,7 @@ const Chatwindow = (props) => {
           style={{ textAlign: "right" }}
           className="message-ribbon"
         >
-          <strong>{message.content}</strong>
+          <strong></strong>{message.content}
         </div>
       );
     if (
@@ -90,7 +89,7 @@ const Chatwindow = (props) => {
           style={{ textAlign: "left" }}
           className="message-ribbon"
         >
-        <strong>{message.content}</strong>
+          {message.content}
         </div>
       );
   });
@@ -98,7 +97,6 @@ const Chatwindow = (props) => {
   socket.on("new-notification", (data)=>{
     // toastr.success(data,'Message')
     alert(`message ${data}` )
-    // console.log(`message ${data}`)
   })
 
 

@@ -35,7 +35,6 @@ const Sidebar = (props) => {
         onClick={(e) => userName_from_click(e)}
       >
           {user.username}
-          {user.messages ? user.messages[0]: "null"}
          
       </div>
     );
